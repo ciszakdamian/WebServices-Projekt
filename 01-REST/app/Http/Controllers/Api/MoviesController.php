@@ -24,4 +24,14 @@ class MoviesController extends Controller
     public function moviesById($id){
         return response()->json(MoviesModel::find($id), 200);
     }
+
+    /**
+     * Add new movie to DB
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function moviesSave(Request $request){
+        $movie = MoviesModel::create($request->all());
+        return response()->json($movie, 201);
+    }
 }

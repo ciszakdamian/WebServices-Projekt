@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('movies', 'Api\MoviesController@movies');
 Route::get('movies/{id}', 'Api\MoviesController@moviesById');
+Route::post('movies', 'Api\MoviesController@moviesSave');
