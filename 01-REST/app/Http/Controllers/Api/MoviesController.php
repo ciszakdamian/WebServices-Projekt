@@ -15,4 +15,13 @@ class MoviesController extends Controller
     public function movies(){
         return response()->json(MoviesModel::get(), 200);
     }
+
+    /**
+     * Return movie by select id
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function moviesById($id){
+        return response()->json(MoviesModel::find($id), 200);
+    }
 }
