@@ -25,7 +25,7 @@ class MoviesController extends Controller
     {
         $movie = MoviesModel::find($id);
         if (is_null($movie)) {
-            return response()->json("Movie not found!", 404);
+            return response()->json(["message" => "Movie not found!"], 404);
         }
         return response()->json(MoviesModel::find($id), 200);
     }
@@ -49,7 +49,7 @@ class MoviesController extends Controller
     public function moviesUpdate(Request $request, $id){
         $movie = MoviesModel::find($id);
         if(is_null($movie)){
-            return response()->json("Movie not found",  404);
+            return response()->json(["message" => "Movie not found!"], 404);
         }
         $movie->update($request->all());
         return response()->json($movie, 200);
@@ -65,7 +65,7 @@ class MoviesController extends Controller
     public function moviesDelete(Request $request, $id){
         $movie = MoviesModel::find($id);
         if(is_null($movie)){
-            return response()->json("Movie not found!", 404);
+            return response()->json(["message" => "Movie not found!"], 404);
         }
         $movie->delete();
         return response()->json(null, 204);
