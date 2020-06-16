@@ -86,6 +86,35 @@ curl --request POST 'http://127.0.0.1:8000/api/movies?tytul=Title&okladka=Movie%
     "id": 11
 }
 
+4. Update movie by id
+Update selected movie details by movie selected by id.
+- URL:
+/api/movies/:id
+- Method:
+PUT
+- URL Params:
+if=[int]
+tytul=[string]
+okladka=[string]
+kategoria=[string]
+rezyser=[string]
+rok_produkcji=[int]
+opis_fabuly=[string]
+cena=[float]
+- Example call:
+curl --request PUT 'http://127.0.0.1:8000/api/movies/10?tytul=New%20title&rezyser=Damian%20Ciszak'
+- Example response:
+{
+    "id": 10,
+    "tytul": "New title",
+    "okladka": "fdfds",
+    "kategoria": "fsdfsdsdf",
+    "rezyser": "Damian Ciszak",
+    "rok_produkcji": 2020,
+    "opis_fabuly": "fsdfsdfsdf",
+    "cena": "35000.00"
+}
+
 
 
 

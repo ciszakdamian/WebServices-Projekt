@@ -34,4 +34,18 @@ class MoviesController extends Controller
         $movie = MoviesModel::create($request->all());
         return response()->json($movie, 201);
     }
+
+
+    /**
+     * Update movie by id
+     * @param Request $request
+     * @param MoviesModel $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function moviesUpdate(Request $request, MoviesModel $id ){
+        $id->update($request->all());
+        return response()->json($id, 200);
+    }
+
+
 }
