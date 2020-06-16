@@ -1,0 +1,91 @@
+#Microservice: 01-REST:
+Info: The Rest API delivery full CRUD for movies database.
+How to run: Execute on main directory "php artisan serve --port 8080"
+Example dev root path: http://127.0.0.1:8080/
+
+1. Show all movies
+Returns json data about all movies.
+- URL:
+/api/movies
+- Method:
+GET
+- URL Params:
+none
+- Example call:
+curl --request GET 'http://127.0.0.1:8000/api/movies'
+- Example response:
+[
+    {
+        "id": 1,
+        "tytul": "Nietykalni",
+        "okladka": "nietykalni.jpg",
+        "kategoria": "Biograficzny",
+        "rezyser": "Olivier Nakache",
+        "rok_produkcji": 2011,
+        "opis_fabuly": "Ta historia zdarzyła się naprawdę. Sparaliżowany na skutek wypadku milioner zatrudnia do pomocy i opieki młodego chłopaka z przedmieścia, który właśnie wyszedł z więzienia. Zderzenie dwóch skrajnie różnych światów daje początek szeregowi niewiarygodnych przygód i przyjaźni, która czyni ich... nietykalnymi.",
+        "cena": "37.44"
+    },
+    {
+        "id": 2,
+        "tytul": "Forrest Gump",
+        "okladka": "forrest_gump.jpg",
+        "kategoria": "Dramat",
+        "rezyser": "Robert Zemeckis",
+        "rok_produkcji": 1994,
+        "opis_fabuly": "Historia życia Forresta, chłopca o niskim ilorazie inteligencji z niedowładem kończyn, który staje się miliarderem i bohaterem wojny w Wietnamie.",
+        "cena": "25.99"
+    }
+
+2. Select movie by id.
+Returns json data about selected movie.
+- URL:
+/api/movies/:id
+- Method:
+GET
+- URL Params:
+id=[int]
+- Example call:
+curl --request GET 'http://127.0.0.1:8000/api/movies/3'
+- Example response:
+{
+    "id": 3,
+    "tytul": "Ojciec Chrzestny II",
+    "okladka": "ojciec_chrzestny_2.jpg",
+    "kategoria": "Dramat",
+    "rezyser": "Francis Ford Coppola",
+    "rok_produkcji": 1974,
+    "opis_fabuly": "Rok 1917. Młody Vito Corleone stawia pierwsze kroki w mafijnym świecie Nowego Jorku. Ponad 40 lat później jego syn Michael walczy o interesy i dobro rodziny.",
+    "cena": "42.00"
+}
+
+3. Add new movie to collection.
+Add new movie to database and return movie with id.
+- URL:
+/api/movies/
+- Method:
+POST
+- URL Params:
+tytul=[string]
+okladka=[string]
+kategoria=[string]
+rezyser=[string]
+rok_produkcji=[int]
+opis_fabuly=[string]
+cena=[float]
+- Example call:
+curl --request POST 'http://127.0.0.1:8000/api/movies?tytul=Title&okladka=Movie%20image&kategoria=Category&rezyser=Director&rok_produkcji=2020&opis_fabuly=Plot&cena=99.99'
+- Example response:
+{
+    "tytul": "Title",
+    "okladka": "Movie image",
+    "kategoria": "Category",
+    "rezyser": "Director",
+    "rok_produkcji": "2020",
+    "opis_fabuly": "Plot",
+    "cena": "99.99",
+    "id": 11
+}
+
+
+
+
