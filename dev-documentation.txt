@@ -93,7 +93,7 @@ Update selected movie details by movie selected by id.
 - Method:
 PUT
 - URL Params:
-if=[int]
+id=[int]
 tytul=[string]
 okladka=[string]
 kategoria=[string]
@@ -115,6 +115,18 @@ curl --request PUT 'http://127.0.0.1:8000/api/movies/10?tytul=New%20title&rezyse
     "cena": "35000.00"
 }
 
+4. Delete movie by id
+Delete selected movie by id.
+- URL:
+/api/movies/:id
+- Method:
+DELETE
+- URL Params:
+id=[int]
+- Example call:
+curl --request DELETE 'http://127.0.0.1:8000/api/movies/10'
+- Example response:
+{}
 
 
 

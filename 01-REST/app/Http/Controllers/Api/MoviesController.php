@@ -47,5 +47,16 @@ class MoviesController extends Controller
         return response()->json($id, 200);
     }
 
+    /**
+     * Delete movie by Id
+     * @param Request $request
+     * @param MoviesModel $id
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function moviesDelete(Request $request, MoviesModel $id){
+        $id->delete();
+        return response()->json(null, 204);
+    }
 
 }
