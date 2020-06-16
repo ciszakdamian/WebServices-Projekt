@@ -21,7 +21,12 @@ class MoviesController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function moviesById($id){
+    public function moviesById($id)
+    {
+        $movie = MoviesModel::find($id);
+        if (is_null($movie)) {
+            return response()->json("Movie not found!", 404);
+        }
         return response()->json(MoviesModel::find($id), 200);
     }
 
@@ -35,16 +40,19 @@ class MoviesController extends Controller
         return response()->json($movie, 201);
     }
 
-
     /**
      * Update movie by id
      * @param Request $request
      * @param MoviesModel $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function moviesUpdate(Request $request, MoviesModel $id ){
-        $id->update($request->all());
-        return response()->json($id, 200);
+    public function moviesUpdate(Request $request, $id){
+        $movie = MoviesModel::find($id);
+        if(is_null($movie)){
+            return response()->json("Movie not found",  404);
+        }
+        $movie->update($request->all());
+        return response()->json($movie, 200);
     }
 
     /**
@@ -54,8 +62,12 @@ class MoviesController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function moviesDelete(Request $request, MoviesModel $id){
-        $id->delete();
+    public function moviesDelete(Request $request, $id){
+        $movie = MoviesModel::find($id);
+        if(is_null($movie)){
+            return response()->json("Movie not found!", 404);
+        }
+        $movie->delete();
         return response()->json(null, 204);
     }
 
