@@ -119,7 +119,7 @@ curl --request PUT 'http://127.0.0.1:8000/api/movies/10?tytul=New%20title&rezyse
 - Example error response:
 "Movie not found!"
 
-4. Delete movie by id
+5. Delete movie by id
 Delete selected movie by id.
 - URL:
 /api/movies/:id
