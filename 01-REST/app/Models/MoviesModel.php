@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoviesModel extends Model
 {
-    protected $table = "filmy";
+    protected $table = "movies";
 
     public $timestamps = false;
 
     protected $fillable = [
-        'tytul',
-        'okladka',
-        'kategoria',
-        'rezyser',
-        'rok_produkcji',
-        'opis_fabuly',
-        'cena'
+        'title',
+        'movie_cover',
+        'category',
+        'director_id',
+        'year_of_production',
+        'plot_description',
+        'price'
     ];
 
 }
