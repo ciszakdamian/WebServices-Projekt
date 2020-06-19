@@ -20,8 +20,9 @@ class MoviesSeeder extends Seeder
                 ['name', '=', 'James'],
                 ['surname', '=', 'Cameron']
             ])->value('id'),
+            'production_company_id' => DB::table('production_companies')->where('company', '=', '20th Century Fox')->value('id'),
             'year_of_production' => 2009,
-            'plot_description' => 'Jake, sparaliżowany były komandos, zostaje wysłany na planetę Pandora, gdzie zaprzyjaźnia się z lokalną społecznością i postanawia jej pomóc.',
+            'plot_description' => 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home. When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora.',
             'price' => 29.99
         ]);
     }

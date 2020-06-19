@@ -20,6 +20,8 @@ class Movies extends Migration
             $table->string('category', 255);
             $table->unsignedBigInteger('director_id');
             $table->foreign('director_id')->references('id')->on('persons');
+            $table->unsignedBigInteger('production_company_id');
+            $table->foreign('production_company_id')->references('id')->on('production_companies');
             $table->integer('year_of_production');
             $table->text('plot_description');
             $table->decimal('price', 8, 2);
