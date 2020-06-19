@@ -35,3 +35,9 @@ Route::get('production_companies/{id}', 'Api\ProductionCompaniesController@produ
 Route::post('production_companies', 'Api\ProductionCompaniesController@production_companiesSave');
 Route::put('production_companies/{id}', 'Api\ProductionCompaniesController@production_companiesUpdate');
 Route::delete('production_companies/{id}', 'Api\ProductionCompaniesController@production_companiesDelete');
+
+Route::get('casts', 'Api\CastsController@casts');
+Route::get('casts/{id}', 'Api\CastsController@castsById');
+Route::post('casts', 'Api\CastsController@castsSave');
+Route::put('casts/{id}', 'Api\CastsController@castsUpdate');
+Route::delete('casts/{id}', 'Api\CastsController@castsDelete');
