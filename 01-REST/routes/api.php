@@ -29,3 +29,9 @@ Route::get('persons/{id}', 'Api\PersonsController@personsById');
 Route::post('persons', 'Api\PersonsController@personsSave');
 Route::put('persons/{id}', 'Api\PersonsController@personsUpdate');
 Route::delete('persons/{id}', 'Api\PersonsController@personsDelete');
+
+Route::get('production_companies', 'Api\ProductionCompaniesController@production_companies');
+Route::get('production_companies/{id}', 'Api\ProductionCompaniesController@production_companiesById');
+Route::post('production_companies', 'Api\ProductionCompaniesController@production_companiesSave');
+Route::put('production_companies/{id}', 'Api\ProductionCompaniesController@production_companiesUpdate');
+Route::delete('production_companies/{id}', 'Api\ProductionCompaniesController@production_companiesDelete');
