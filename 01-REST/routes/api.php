@@ -23,3 +23,9 @@ Route::get('movies/{id}', 'Api\MoviesController@moviesById');
 Route::post('movies', 'Api\MoviesController@moviesSave');
 Route::put('movies/{id}', 'Api\MoviesController@moviesUpdate');
 Route::delete('movies/{id}', 'Api\MoviesController@moviesDelete');
+
+Route::get('persons', 'Api\PersonsController@persons');
+Route::get('persons/{id}', 'Api\PersonsController@personsById');
+Route::post('persons', 'Api\PersonsController@personsSave');
+Route::put('persons/{id}', 'Api\PersonsController@personsUpdate');
+Route::delete('persons/{id}', 'Api\PersonsController@personsDelete');
