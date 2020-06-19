@@ -19,5 +19,12 @@ class PersonsSeeder extends Seeder
             'gender' => 'M',
             'birth_date' => Carbon::create('1954', '08', '16')
         ]);
+
+        DB::table('persons')->insert([
+            'name' => 'Sigourney',
+            'surname' => 'Weaver',
+            'gender' => 'F',
+            'birth_date' => Carbon::create('1949', '10', '08')
+        ]);
     }
 }
