@@ -16,7 +16,10 @@ class MoviesSeeder extends Seeder
             'title' => 'Avatar',
             'movie_cover' => 'avatar.jpg',
             'category' => 'Fantasy',
-            'director_id' => DB::table('persons')->where('name', '=', 'James')->value('id'),
+            'director_id' => DB::table('persons')->where([
+                ['name', '=', 'James'],
+                ['surname', '=', 'Cameron']
+            ])->value('id'),
             'year_of_production' => 2009,
             'plot_description' => 'Jake, sparaliżowany były komandos, zostaje wysłany na planetę Pandora, gdzie zaprzyjaźnia się z lokalną społecznością i postanawia jej pomóc.',
             'price' => 29.99
