@@ -17,24 +17,27 @@ curl --request GET 'http://127.0.0.1:8000/api/movies'
 [
     {
         "id": 1,
-        "tytul": "Nietykalni",
-        "okladka": "nietykalni.jpg",
-        "kategoria": "Biograficzny",
-        "rezyser": "Olivier Nakache",
-        "rok_produkcji": 2011,
-        "opis_fabuly": "Ta historia zdarzyła się naprawdę. Sparaliżowany na skutek wypadku milioner zatrudnia do pomocy i opieki młodego chłopaka z przedmieścia, który właśnie wyszedł z więzienia. Zderzenie dwóch skrajnie różnych światów daje początek szeregowi niewiarygodnych przygód i przyjaźni, która czyni ich... nietykalnymi.",
-        "cena": "37.44"
+        "title": "New title",
+        "movie_cover": "avatar.jpg",
+        "category": "Fantasy",
+        "director_id": 1,
+        "production_company_id": 1,
+        "year_of_production": 2009,
+        "plot_description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home. When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora.",
+        "price": "29.99"
     },
     {
-        "id": 2,
-        "tytul": "Forrest Gump",
-        "okladka": "forrest_gump.jpg",
-        "kategoria": "Dramat",
-        "rezyser": "Robert Zemeckis",
-        "rok_produkcji": 1994,
-        "opis_fabuly": "Historia życia Forresta, chłopca o niskim ilorazie inteligencji z niedowładem kończyn, który staje się miliarderem i bohaterem wojny w Wietnamie.",
-        "cena": "25.99"
+        "id": 3,
+        "title": "Title",
+        "movie_cover": "Movie image",
+        "category": "Category",
+        "director_id": 1,
+        "production_company_id": 1,
+        "year_of_production": 2020,
+        "plot_description": "bla bla bla",
+        "price": "99.99"
     }
+]
 
 2. Select movie by id.
 Returns json data about selected movie.
@@ -45,20 +48,23 @@ GET
 - URL Params:
 id=[int]
 - Example call:
-curl --request GET 'http://127.0.0.1:8000/api/movies/3'
+curl --request GET 'http://127.0.0.1:8000/api/movies/1'
 - Example response:
 {
-    "id": 3,
-    "tytul": "Ojciec Chrzestny II",
-    "okladka": "ojciec_chrzestny_2.jpg",
-    "kategoria": "Dramat",
-    "rezyser": "Francis Ford Coppola",
-    "rok_produkcji": 1974,
-    "opis_fabuly": "Rok 1917. Młody Vito Corleone stawia pierwsze kroki w mafijnym świecie Nowego Jorku. Ponad 40 lat później jego syn Michael walczy o interesy i dobro rodziny.",
-    "cena": "42.00"
+    "id": 1,
+    "title": "Avatar",
+    "movie_cover": "avatar.jpg",
+    "category": "Fantasy",
+    "director_id": 1,
+    "production_company_id": 1,
+    "year_of_production": 2009,
+    "plot_description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home. When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora.",
+    "price": "29.99"
 }
 - Example error response:
-"Movie not found!"
+{
+    "message": "Movie not found!"
+}
 
 3. Add new movie to collection.
 Add new movie to database and return movie with id.
@@ -67,25 +73,28 @@ Add new movie to database and return movie with id.
 - Method:
 POST
 - URL Params:
-tytul=[string]
-okladka=[string]
-kategoria=[string]
-rezyser=[string]
-rok_produkcji=[int]
-opis_fabuly=[string]
-cena=[float]
+id=[integer]
+title=[string]
+movie_cover=[string]
+category=[string]
+director_id=[integer]
+production_company_id=[integer]
+year_of_production=[integer]
+plot_description=[text]
+price=[decimal]
 - Example call:
-curl --request POST 'http://127.0.0.1:8000/api/movies?tytul=Title&okladka=Movie%20image&kategoria=Category&rezyser=Director&rok_produkcji=2020&opis_fabuly=Plot&cena=99.99'
+curl --request POST 'http://127.0.0.1:8000/api/movies?title=Title&movie_cover=Movie%20image&category=Category&director_id=1&production_company_id=1&year_of_production=2020&plot_description=bla%20bla%20bla&price=99.99'
 - Example response:
 {
-    "tytul": "Title",
-    "okladka": "Movie image",
-    "kategoria": "Category",
-    "rezyser": "Director",
-    "rok_produkcji": "2020",
-    "opis_fabuly": "Plot",
-    "cena": "99.99",
-    "id": 11
+    "title": "Title",
+    "movie_cover": "Movie image",
+    "category": "Category",
+    "director_id": "1",
+    "production_company_id": "1",
+    "year_of_production": "2020",
+    "plot_description": "bla bla bla",
+    "price": "99.99",
+    "id": 2
 }
 
 4. Update movie by id
@@ -95,26 +104,28 @@ Update selected movie details by movie selected by id.
 - Method:
 PUT
 - URL Params:
-id=[int]
-tytul=[string]
-okladka=[string]
-kategoria=[string]
-rezyser=[string]
-rok_produkcji=[int]
-opis_fabuly=[string]
-cena=[float]
+id=[integer]
+title=[string]
+movie_cover=[string]
+category=[string]
+director_id=[integer]
+production_company_id=[integer]
+year_of_production=[integer]
+plot_description=[text]
+price=[decimal]
 - Example call:
 curl --request PUT 'http://127.0.0.1:8000/api/movies/10?tytul=New%20title&rezyser=Damian%20Ciszak'
 - Example response:
 {
-    "id": 10,
-    "tytul": "New title",
-    "okladka": "fdfds",
-    "kategoria": "fsdfsdsdf",
-    "rezyser": "Damian Ciszak",
-    "rok_produkcji": 2020,
-    "opis_fabuly": "fsdfsdfsdf",
-    "cena": "35000.00"
+    "id": 1,
+    "title": "New title",
+    "movie_cover": "avatar.jpg",
+    "category": "Fantasy",
+    "director_id": "1",
+    "production_company_id": 1,
+    "year_of_production": 2009,
+    "plot_description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home. When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora.",
+    "price": "29.99"
 }
 - Example error response:
 "Movie not found!"
@@ -132,7 +143,9 @@ curl --request DELETE 'http://127.0.0.1:8000/api/movies/10'
 - Example response:
 {}
 - Example error response:
-"Movie not found!"
+{
+    "message": "Movie not found!"
+}
 
 
 
