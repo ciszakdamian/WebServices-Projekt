@@ -15,6 +15,7 @@ class MoviesModel extends Model
         'movie_cover',
         'category',
         'director_id',
+        'production_company_id',
         'year_of_production',
         'plot_description',
         'price'
