@@ -1,6 +1,3 @@
-<head>
-    <title>01-SOAP-API</title>
-</head>
 <?php
 require 'vendor/autoload.php';
 
