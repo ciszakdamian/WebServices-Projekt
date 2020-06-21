@@ -2,4 +2,4 @@
 //NuSOAP https://github.com/pwnlabs/nusoap
 
 //Set SOAP API url
-$wsdl = 'http://localhost:8000/soap/?wsdl';
+$wsdl = 'http://soap01.webservice.zhq.pl/index.php?wsdl';
